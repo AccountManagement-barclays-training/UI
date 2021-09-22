@@ -29,45 +29,67 @@ function validate(event){
 .catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
 }
 
-
 async function checkPan(event){
 	console.log(event);
     event.preventDefault();
-	var pan=document.querySelector("#pan").value;
-    if(pan.length !=10){
-        alert("Enter valid Pan number!");
-        location.reload();
+    obj ={}
+    var panno=document.querySelector("#pan").value;
+    obj.pan = panno
+    localStorage.setItem("mypan",panno);
+    
 
-    }
-    else{
-        console.log(pan);
-	const response = await fetch('http://acm.mocklab.io/v1/checkpan');
-	console.log(response);
-	// Storing data in form of JSON
-	var data =  await response.text();
+  fetch('http://acm.mocklab.io/v1/checkpan', 
+  {
+  method: 'POST',
+  body: JSON.stringify(obj),
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+})
+.then(resp=>resp.json())
+.then(data => {
+    
+	console.log("Data");
     console.log(data);
-	const myObj = JSON.parse(data);
-	console.log(myObj);
-	var flag=0;
-	for(let i in myObj.existing){
-		if (pan===myObj.existing[i]){
-			flag=1;
-		}	
-	}
-
-	if(flag===0){
-
-		window.location.replace("newCustomer.html");
-	}
-
-	else{
-		localStorage.setItem("myPan", pan);
-		console.log("existingCustomer.html");
+	if(data.message=="success"){
 		window.location.replace("existingCustomer.html");
 	}
-
+    
+})
+.catch(error=>{window.location.replace("newCustomer.html");});
 	
-    }
+}
+async function validateCus(event){
+	console.log(event);
+    event.preventDefault();
+    obj ={}
+    obj.username = document.querySelector("#cid").value;
+    obj.password = document.querySelector("#password").value;
+    console.log(obj);
+    //console.log(JSON.stringify(obj));
+   // var data = 
+
+  fetch('http://acm.mocklab.io/cuslog', 
+  {
+  method: 'POST',
+  body: JSON.stringify(obj),
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+})
+.then(resp=>resp.json())
+.then(data => {
+    
+	console.log("Data");
+    console.log(data);
+	if(data.message=="success"){
+		window.location.replace("displayAccounts.html");
+	}
+})
+.catch(error=>{window.alert("Invalid credentials!!"); 
+    location.reload();});
 	
 }
 
@@ -120,5 +142,8 @@ function displayCus(event){
 document.getElementById("users").innerHTML = li;
 });
 }
+
+
+
 
 
