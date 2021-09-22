@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="./style/cuslogstyle.css">
 	<script type="text/javascript">
 		console.log("Hello");
 		var cid=localStorage.getItem("cid");
@@ -22,7 +23,7 @@
 		.then(resp=>resp.json())
 		.then(data => {
 			for(let i in data.trans){
-				p+=`<p><b>Transaction Id:</b>&nbsp;&nbsp;${data.trans[i].tid}<br><br>
+				p+=`<p style="font-size: 20px;"><b>Transaction Id:</b>&nbsp;&nbsp;${data.trans[i].tid}<br><br>
                     <b>Transaction Number:</b>&nbsp;&nbsp;${data.trans[i].tno}<br><br>
                     <b>Transaction Type:</b>&nbsp;&nbsp;${data.trans[i].type}<br><br>
                     <b>Transaction Amount:</b>&nbsp;&nbsp;${data.trans[i].amount}<br><br>
@@ -38,26 +39,39 @@
 		});
 				
 	</script>
-</head>
-	<body>
 	
 
-		<div>
+</head>
+	<body>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
 			<h1 style="text-align: center;">Your Account Details</h1>
 			<br>
 	   
 			<!-- Table to display fetched user data -->
 			<p style="text-align: justify; font-size: 30px;" id="users"></p>
-		  </div>
-		  <center>
+		  
+		 
 
-		 <br><button style="background-color: blue;   
-		 width: 30%;  
-		  color: white;   
+		 <br><button style="background-color: #56baed;   
+		 width: 30%;     
 		  padding: 15px;   
 		  margin: 10px 0px;   
-		  border: none;   
-		  cursor: pointer;"><a href="customerlogin.html">Back to Home Page</a></button>
-		</center>
+		  border: none;
+		  font-size: 13px;   
+		  cursor: pointer;"><a style="color: white;"
+		  href="accounttransfer.html">Amount Transfer</a></button>
+
+		  <button style="background-color: #56baed;   
+		 width: 30%;     
+		  padding: 15px;   
+		  margin: 10px 0px;   
+		  border: none;
+		  font-size: 13px;   
+		  cursor: pointer;"><a style="color: white;"
+		  href="customerlogin.html">Logout</a></button>
+		
+		</div>
+		</div>
 	</body>
 </html>

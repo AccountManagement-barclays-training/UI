@@ -6,25 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 <title> Login Page </title>  
 <script type="text/javascript" src="./scripts/script.js"></script>
-<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="./style/cuslogstyle.css">
 <style>   
 </style>
 
 
 </head>    
 <body> 
+    <div class="wrapper fadeInDown">
+        <div id="formContent"> 
     <center>   
     <h1> Details Required  </h1>
     
     <form>  
            
-            <label>Receiver Accno : </label>   
+             
             <input type="text" placeholder="Enter Receiver Accno" id="racc" required/>  <br>
-            <label>Amount : </label>   
+            
             <input type="text" placeholder="Enter Amount" id="amt" required/> <br><br>
             
-           <br> <button type="submit" onclick="accounttransfer(event)">Login</button>           
-    </form> 
+           <br> <input type="submit" onclick="accounttransfer(event)" value="Proceed"></button> 
+                     
+    </form>
 </center> 
+</div>
+</div>
 </body>     
 </html>  

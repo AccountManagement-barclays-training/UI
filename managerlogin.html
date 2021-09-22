@@ -6,25 +6,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 <title> Login Page </title>  
 <script type="text/javascript" src="./scripts/script.js"></script>
-<link rel="stylesheet" href="./style/style.css">
+<link rel="stylesheet" href="./style/cuslogstyle.css">
 <style>   
 </style>
 
 
 </head>    
 <body> 
-    <center>   
-    <h1> LOGIN  </h1>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent"> 
+            <div id="formContent">
+                <div class="fadeIn first">
+                    <img src="mainbuilding.jpg" id="icon" alt="User Icon" />
+                  </div>
+    <h1> MANAGER LOGIN  </h1>
     
     <form>  
            
-            <label>Username : </label>   
+              
             <input type="text" placeholder="Enter Username" id="username" required/>  <br>
-            <label>Password : </label>   
+             
             <input type="password" placeholder="Enter Password" id="password" required/> <br><br>
             
-           <br> <button type="submit" onclick="validate(event)">Login</button>           
+           <br><input type="submit" onclick="validate(event)" value="Login"></button>           
     </form> 
-</center> 
+</div>
+</div>
 </body>     
 </html>  

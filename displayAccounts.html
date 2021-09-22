@@ -20,9 +20,9 @@
 		.then(resp=>resp.json())
 		.then(data => {
 				for(let i in data.details){
-				p +=`<p><b>Account Number:</b>&nbsp;&nbsp;${data.details[i].accno}<br><br>
+				p +=`<center><p style="font-size: 20px;"><b>Account Number:</b>&nbsp;&nbsp;${data.details[i].accno}<br><br>
 				<b>Balance:</b>&nbsp;&nbsp;${data.details[i].bal}</b><br><br>
-				</p>`;
+				</p></center>`;
             localStorage.setItem("accno",data.details[0].accno);
             localStorage.setItem("cid",cid);
             document.getElementById("users").innerHTML=p;
@@ -39,28 +39,25 @@
 	}
 				
 	</script>
+	<link rel="stylesheet" href="./style/cuslogstyle.css">
 </head>
 	<body>
 	
 
-		<div>
-			<h1 style="text-align: center;">Your Account Details</h1>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
+			<u><h1 style="text-align: center;font-size: 30px;font-family:'Times New Roman', Times, serif;">Your Account Details</h1></u>
 			<br>
 			<!-- Table to display fetched user data -->
 			<p style="text-align: justify; font-size: 30px;" id="users"> </p>
-		  </div>
-		  <center>
+		  
+		  
 		  	<form> 
-		  	<input style="width:30%;
-		  	height:20px;" type="text" id="accno" placeholder="Enter Acc No for View"/>
+		  	<input type="text" id="accno" placeholder="Enter Acc No for View"/>
 		  	<br>
-		  <button style="background-color: blue;   
-		 width: 20%;  
-		  color: white;   
-		  padding: 15px;   
-		  margin: 10px 0px;   
-		  border: none;   
-		  cursor: pointer; "type="submit" onclick="viewTrans(event)">View Transactions</button>
-		 </center>
+		  <input type="submit" value="View Transactions"onclick="viewTrans(event)"></button>
+		
+		 </div>
+		</div>
 	</body>
 </html>

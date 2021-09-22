@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="./style/cuslogstyle.css">
 	<script type="text/javascript">
 		console.log("Hello");
 		var pann=localStorage.getItem("myypan");
@@ -19,12 +20,12 @@
 		.then(resp=>resp.json())
 		.then(data => {
 				
-				let p=`<p><b>Customer ID:</b>&nbsp;&nbsp;${data.id}<br><br>
+				let p=`<center><p style="font-size: 20px;"><b>Customer ID:</b>&nbsp;&nbsp;${data.id}<br><br>
 				<b>Name:</b>&nbsp;&nbsp;${data.name}</b><br><br>
 				<b>E-mail Address:</b>&nbsp;&nbsp;${data.email}</b><br><br>
 				<b>Date Of Birth:</b>&nbsp;&nbsp;${data.dob}</b><br><br>
 				<b>Address:</b>&nbsp;&nbsp;${data.address}</b><br><br>
-				</p>`;
+				</p></center>`;
 		
 
 			document.getElementById("users").innerHTML = p;
@@ -34,22 +35,23 @@
 	</script>
 </head>
 	<body>
-	
-
-		<div>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
 			<h1 style="text-align: center;">Welcome Back</h1>
 			<br>
 	   
 			<!-- Table to display fetched user data -->
 			<p style="text-align: justify; font-size: 30px;" id="users"></p>
-		  </div>
+		  
 		  <center>
-		 <button style="background-color: blue;   
+		 <button style="background-color:#56baed;   
 		 width: 30%;  
 		  color: white;   
 		  padding: 15px;   
 		  margin: 10px 0px;   
 		  border: none;   
 		  cursor: pointer; "><a style="color: white" href="managerhome.html">Back to Home</a></button></center>
+		</div>
+		</div>
 	</body>
 </html>
