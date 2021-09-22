@@ -4,12 +4,12 @@
 	<script type="text/javascript">
 		console.log("Hello");
 		var cid=localStorage.getItem("cid");
-        var accno=localStorage.getItem("accno");
-		localStorage.setItem("sacc",accno);
+        var accno=localStorage.getItem("acc");
 		obj ={}
     	obj.cid =cid;
         obj.accno=accno;
-    
+        console.log(obj);
+    	var p=``;
 		fetch('http://acm.mocklab.io/transactions', 
 		{
 		method: 'POST',
@@ -21,18 +21,19 @@
 		})
 		.then(resp=>resp.json())
 		.then(data => {
-			
-				let p=`<p><b>Transaction Id:</b>&nbsp;&nbsp;${data.tid}<br><br>
-                    <b>Transaction Number:</b>&nbsp;&nbsp;${data.tno}<br><br>
-                    <b>Transaction Type:</b>&nbsp;&nbsp;${data.type}<br><br>
-                    <b>Transaction Amount:</b>&nbsp;&nbsp;${data.amount}<br><br>
-                    <b>Transaction Date:</b>&nbsp;&nbsp;${data.date}<br><br>
-                    <b>Transaction Sub-Type:</b>&nbsp;&nbsp;${data.subtype}<br><br>
+			for(let i in data.trans){
+				p+=`<p><b>Transaction Id:</b>&nbsp;&nbsp;${data.trans[i].tid}<br><br>
+                    <b>Transaction Number:</b>&nbsp;&nbsp;${data.trans[i].tno}<br><br>
+                    <b>Transaction Type:</b>&nbsp;&nbsp;${data.trans[i].type}<br><br>
+                    <b>Transaction Amount:</b>&nbsp;&nbsp;${data.trans[i].amount}<br><br>
+                    <b>Transaction Date:</b>&nbsp;&nbsp;${data.trans[i].date}<br><br>
+                    <b>Transaction Sub-Type:</b>&nbsp;&nbsp;${data.trans[i].subtype}<br><br>
 				
-				</p>`;
+				</p>
+				<hr><hr>`;
 		
 
-			document.getElementById("users").innerHTML = p;
+			document.getElementById("users").innerHTML = p;}
 			
 		});
 				
@@ -42,19 +43,21 @@
 	
 
 		<div>
-			<h1 style="text-align: center;">Your Transactions</h1>
+			<h1 style="text-align: center;">Your Account Details</h1>
 			<br>
 	   
 			<!-- Table to display fetched user data -->
 			<p style="text-align: justify; font-size: 30px;" id="users"></p>
 		  </div>
 		  <center>
-		 <button style="background-color: blue;   
+
+		 <br><button style="background-color: blue;   
 		 width: 30%;  
 		  color: white;   
 		  padding: 15px;   
 		  margin: 10px 0px;   
 		  border: none;   
-		  cursor: pointer; "><a style="color: white" href="accounttransfer.html">Account Transfer</a></button></center>
+		  cursor: pointer;"><a href="customerlogin.html">Back to Home Page</a></button>
+		</center>
 	</body>
 </html>

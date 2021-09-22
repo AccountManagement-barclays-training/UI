@@ -6,9 +6,10 @@
 		var cid=localStorage.getItem("cid");
 		obj ={}
     	obj.cid =cid;
-    
+    	var p=``;
 		fetch('http://acm.mocklab.io/accounts', 
 		{
+
 		method: 'POST',
 		body: JSON.stringify(obj),
 		headers: {
@@ -18,15 +19,24 @@
 		})
 		.then(resp=>resp.json())
 		.then(data => {
-			
-				let p=`<p><b>Account Number:</b>&nbsp;&nbsp;${data.accno}<br><br>
-				<b>Balance:</b>&nbsp;&nbsp;${data.bal}</b><br><br>
+				for(let i in data.details){
+				p +=`<p><b>Account Number:</b>&nbsp;&nbsp;${data.details[i].accno}<br><br>
+				<b>Balance:</b>&nbsp;&nbsp;${data.details[i].bal}</b><br><br>
 				</p>`;
-            localStorage.setItem("accno",data.accno);
-
-			document.getElementById("users").innerHTML = p;
-			
+            localStorage.setItem("accno",data.details[0].accno);
+            localStorage.setItem("cid",cid);
+            document.getElementById("users").innerHTML=p;
+			}
 		});
+
+	function viewTrans(event)
+	{
+		console.log("HELLO");
+		event.preventDefault();
+		var accno = document.getElementById("accno").value;
+		localStorage.setItem("acc", accno);
+		window.location.replace("viewtransactions.html");
+	}
 				
 	</script>
 </head>
@@ -36,17 +46,21 @@
 		<div>
 			<h1 style="text-align: center;">Your Account Details</h1>
 			<br>
-	   
 			<!-- Table to display fetched user data -->
-			<p style="text-align: justify; font-size: 30px;" id="users"></p>
+			<p style="text-align: justify; font-size: 30px;" id="users"> </p>
 		  </div>
 		  <center>
-		 <button style="background-color: blue;   
-		 width: 30%;  
+		  	<form> 
+		  	<input style="width:30%;
+		  	height:20px;" type="text" id="accno" placeholder="Enter Acc No for View"/>
+		  	<br>
+		  <button style="background-color: blue;   
+		 width: 20%;  
 		  color: white;   
 		  padding: 15px;   
 		  margin: 10px 0px;   
 		  border: none;   
-		  cursor: pointer; "><a style="color: white" href="viewtransactions.html">View Transactions</a></button></center>
+		  cursor: pointer; "type="submit" onclick="viewTrans(event)">View Transactions</button>
+		 </center>
 	</body>
 </html>
