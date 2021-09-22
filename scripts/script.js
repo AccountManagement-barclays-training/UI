@@ -29,6 +29,43 @@ function validate(event){
 .catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
 }
 
+
+function accounttransfer(event){
+    console.log(event);
+    event.preventDefault();
+
+    obj ={}
+    obj.sacc=localStorage.getItem("sacc");
+    obj.racc = document.querySelector("#racc").value;
+    obj.amount = document.querySelector("#amt").value;
+    console.log(obj);
+    //console.log(JSON.stringify(obj));
+   // var data = 
+
+  fetch('http://acm.mocklab.io/transfer', 
+  {
+  method: 'POST',
+  body: JSON.stringify(obj),
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+})
+.then(resp=>resp.json())
+.then(data => {
+    
+	console.log("Data");
+    console.log(data);
+	if(data.message=="success"){
+		//alert("Transfer Successful");
+        window.location.replace("viewtransactions.html");
+	}
+})
+.catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
+}
+
+
+
 async function checkPan(event){
 	console.log(event);
     event.preventDefault();

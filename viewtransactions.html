@@ -5,6 +5,7 @@
 		console.log("Hello");
 		var cid=localStorage.getItem("cid");
         var accno=localStorage.getItem("accno");
+		localStorage.setItem("sacc",accno);
 		obj ={}
     	obj.cid =cid;
         obj.accno=accno;
@@ -41,7 +42,7 @@
 	
 
 		<div>
-			<h1 style="text-align: center;">Your Account Details</h1>
+			<h1 style="text-align: center;">Your Transactions</h1>
 			<br>
 	   
 			<!-- Table to display fetched user data -->
@@ -54,6 +55,6 @@
 		  padding: 15px;   
 		  margin: 10px 0px;   
 		  border: none;   
-		  cursor: pointer; "><a style="color: white" href="viewtransactions.html">View Transactions</a></button></center>
+		  cursor: pointer; "><a style="color: white" href="accounttransfer.html">Account Transfer</a></button></center>
 	</body>
 </html>
