@@ -34,8 +34,9 @@ async function checkPan(event){
     event.preventDefault();
     obj ={}
     var panno=document.querySelector("#pan").value;
-    obj.pan = panno
-    localStorage.setItem("mypan",panno);
+    console.log(panno);
+    obj.pan = panno;
+    localStorage.setItem("myypan",panno);
     
 
   fetch('http://acm.mocklab.io/v1/checkpan', 
