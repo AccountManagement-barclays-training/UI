@@ -1,0 +1,30 @@
+Body {  
+    top: 20%;
+    font-family: Calibri, Helvetica, sans-serif;  
+      }  
+  button {   
+         background-color: blue;   
+         width: 30%;  
+          color: white;   
+          padding: 15px;   
+          margin: 10px 0px;   
+          border: none;   
+          cursor: pointer;   
+           }   
+     
+   input[type=text], input[type=password] {   
+          margin: 8px 0;  
+          padding: 12px 20px;   
+          display: inline-block;   
+          box-sizing: border-box;   
+      }  
+   button:hover {   
+          opacity: 0.7;   
+      }   
+    
+          
+       
+   .container {   
+          padding: 25px;   
+          background-color: lightblue;  
+      }   

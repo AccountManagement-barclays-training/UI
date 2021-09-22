@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript">
+		console.log("Hello");
+		
+		//event.preventDefault();
+		var pan=localStorage.getItem("myPan");
+		var c=0;
+		console.log(pan);
+		fetch("http://acm.mocklab.io/availablecus")
+		.then(response => response.json())
+		.then(json => {
+			console.log(json);
+			for(let i in json.customers){
+			if (pan===json.customers[i].pan){
+				 c=i;
+				}	
+			}
+
+			/*let li = `<tr><th>CustomerID</th><th>Name</th><th>Email</th>
+				<th>Date of Birth</th><th>Address</th></tr>`;
+			
+			li += `<tr>
+				<td>${json.customers[c].id} </td>
+				<td>${json.customers[c].name}</td>	
+				<td>${json.customers[c].email}</td>
+				<td>${json.customers[c].dob}</td>
+				<td>${json.customers[c].address}</td>
+			</tr>`;*/
+
+			let p=`<p><b>Customer ID:</b>&nbsp;&nbsp;${json.customers[c].id}<br><br>
+				<b>Name:</b>&nbsp;&nbsp;${json.customers[c].name}</b><br><br>
+				<b>E-mail Address:</b>&nbsp;&nbsp;${json.customers[c].email}</b><br><br>
+				<b>Date Of Birth:</b>&nbsp;&nbsp;${json.customers[c].dob}</b><br><br>
+				<b>Address:</b>&nbsp;&nbsp;${json.customers[c].address}</b><br><br>
+				</p>`;
+		
+
+	document.getElementById("users").innerHTML = p;
+	});
+	</script>
+</head>
+	<body>
+	
+
+		<div>
+			<h1 style="text-align: center;">Welcome Back</h1>
+			<br>
+	   
+			<!-- Table to display fetched user data -->
+			<p style="text-align: justify; font-size: 30px;" id="users"></p>
+		  </div>
+		  <center>
+		 <button style="background-color: blue;   
+		 width: 30%;  
+		  color: white;   
+		  padding: 15px;   
+		  margin: 10px 0px;   
+		  border: none;   
+		  cursor: pointer; "><a style="color: white" href="managerhome.html">Back to Home</a></button></center>
+	</body>
+</html>

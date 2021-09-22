@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="scripts/script.js">
+	</script>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 20px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email],input[type=file],textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+button {   
+       background-color: blue;   
+       width: 100%;  
+        color: white;   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+   button:hover {   
+        opacity: 0.7;   
+    }
+
+</style>
+</head>
+<body>
+
+<form action="/action_page.php">
+  <div class="container">
+    <h1><center>Customer Registration</center></h1>
+    
+    <hr>
+    Enter Customer's Name:
+	<input type="text" id="name" placeholder="Enter Customer's Name" required/><br>
+	Enter Customer's DOB:
+	<input type="text" id="dob" placeholder="Enter Customer's DOB" required/><br>
+	Enter Customer's Pan:
+	<input type="text" id="pan" placeholder="Enter Customer's Pan" required/><br>
+	Enter Customer's Aadhar:
+	<input type="text" id="aadhar" placeholder="Enter Customer's Aadhar" required/><br>
+	Enter Customer's Address:
+	<textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+	Enter Customer's Email:
+	<input type="email" id="email" placeholder="Enter Customer's Email ID" required/><br>
+	Proof:<br>
+	<input type="file" name="datafile" size="40">
+
+	<button type="submit" onclick="addData(event)">Login</button>
+	
+
+      </div>
+  
+  
+</form>
+
+</body>
+</html>
+
+
+
+

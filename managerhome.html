@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style type="text/css">
+	body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 20px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email],input[type=file],textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+button {   
+       background-color: blue;   
+       width: 100%;  
+        color: white;   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+   button:hover {   
+        opacity: 0.7;   
+    }
+
+</style>
+
+	<script type="text/javascript" src="scripts/script.js">
+	</script>
+</head>
+<center>
+<form id="form1">
+	<div class="container">
+	Enter Customer's Pan number:
+	<input type="text" name="pan" id="pan" placeholder="Enter Customer's Pan" required/>
+	<br> <button type="submit" onclick="checkPan(event)">Submit</button> 
+	</div>
+	</form>
+</center>
+</html>
