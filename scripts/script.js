@@ -66,6 +66,7 @@ async function validateCus(event){
     event.preventDefault();
     obj ={}
     obj.username = document.querySelector("#cid").value;
+    localStorage.setItem("cid",document.querySelector("#cid").value);
     obj.password = document.querySelector("#password").value;
     console.log(obj);
     //console.log(JSON.stringify(obj));

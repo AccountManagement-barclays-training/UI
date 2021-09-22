@@ -18,7 +18,7 @@
 		})
 		.then(resp=>resp.json())
 		.then(data => {
-			
+				
 				let p=`<p><b>Customer ID:</b>&nbsp;&nbsp;${data.id}<br><br>
 				<b>Name:</b>&nbsp;&nbsp;${data.name}</b><br><br>
 				<b>E-mail Address:</b>&nbsp;&nbsp;${data.email}</b><br><br>
@@ -29,21 +29,8 @@
 
 			document.getElementById("users").innerHTML = p;
 			
-		})
-		.catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
-
-
-
-
-
-
-
-
-
-
-
-
-			
+		});
+				
 	</script>
 </head>
 	<body>

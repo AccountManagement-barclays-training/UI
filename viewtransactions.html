@@ -4,10 +4,12 @@
 	<script type="text/javascript">
 		console.log("Hello");
 		var cid=localStorage.getItem("cid");
+        var accno=localStorage.getItem("accno");
 		obj ={}
     	obj.cid =cid;
+        obj.accno=accno;
     
-		fetch('http://acm.mocklab.io/accounts', 
+		fetch('http://acm.mocklab.io/transactions', 
 		{
 		method: 'POST',
 		body: JSON.stringify(obj),
@@ -19,10 +21,15 @@
 		.then(resp=>resp.json())
 		.then(data => {
 			
-				let p=`<p><b>Account Number:</b>&nbsp;&nbsp;${data.accno}<br><br>
-				<b>Balance:</b>&nbsp;&nbsp;${data.bal}</b><br><br>
+				let p=`<p><b>Transaction Id:</b>&nbsp;&nbsp;${data.tid}<br><br>
+                    <b>Transaction Number:</b>&nbsp;&nbsp;${data.tno}<br><br>
+                    <b>Transaction Type:</b>&nbsp;&nbsp;${data.type}<br><br>
+                    <b>Transaction Amount:</b>&nbsp;&nbsp;${data.amount}<br><br>
+                    <b>Transaction Date:</b>&nbsp;&nbsp;${data.date}<br><br>
+                    <b>Transaction Sub-Type:</b>&nbsp;&nbsp;${data.subtype}<br><br>
+				
 				</p>`;
-            localStorage.setItem("accno",data.accno);
+		
 
 			document.getElementById("users").innerHTML = p;
 			
