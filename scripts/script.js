@@ -29,6 +29,76 @@ function validate(event){
 .catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
 }
 
+function cashdeposit(event){
+    console.log(event);
+    event.preventDefault();
+
+    obj ={}
+    obj.sacc=localStorage.getItem("sacc");
+    obj.amount = document.querySelector("#amt").value;
+    obj.type="deposit";
+    console.log(obj);
+    //console.log(JSON.stringify(obj));
+   // var data = 
+
+  fetch('http://acm.mocklab.io/deposit', 
+  {
+  method: 'POST',
+  body: JSON.stringify(obj),
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+})
+.then(resp=>resp.json())
+.then(data => {
+    
+	console.log("Data");
+    console.log(data);
+	if(data.message=="success"){
+		alert("Deposit Successful");
+        window.location.replace("viewtransactions.html");
+	}
+})
+//.catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
+}
+
+function cashwithdrawal(event){
+    console.log(event);
+    event.preventDefault();
+
+    obj ={}
+    obj.sacc=localStorage.getItem("sacc");
+    
+    obj.amount = document.querySelector("#amt").value;
+    obj.type="withdrawal";
+    console.log(obj);
+    //console.log(JSON.stringify(obj));
+   // var data = 
+
+  fetch('http://acm.mocklab.io/withdraw', 
+  {
+  method: 'POST',
+  body: JSON.stringify(obj),
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+})
+.then(resp=>resp.json())
+.then(data => {
+    
+	console.log("Data");
+    console.log(data);
+	if(data.message=="success"){
+		alert("Withdrawal Successful");
+        window.location.replace("viewtransactions.html");
+	}
+})
+//.catch(error=>{window.alert("Invalid credentials!!"); location.reload();});
+}
+
+
 
 function accounttransfer(event){
     console.log(event);
@@ -57,7 +127,7 @@ function accounttransfer(event){
 	console.log("Data");
     console.log(data);
 	if(data.message=="success"){
-		//alert("Transfer Successful");
+		alert("Transfer Successful");
         window.location.replace("viewtransactions.html");
 	}
 })

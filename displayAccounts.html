@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>View Accounts</title>
 	<script type="text/javascript">
 		console.log("Hello");
 		var cid=localStorage.getItem("cid");
@@ -34,7 +35,7 @@
 		console.log("HELLO");
 		event.preventDefault();
 		var accno = document.getElementById("accno").value;
-		localStorage.setItem("acc", accno);
+		localStorage.setItem("sacc", accno);
 		window.location.replace("viewtransactions.html");
 	}
 				
